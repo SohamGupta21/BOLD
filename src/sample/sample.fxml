@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="582.0" prefWidth="868.0" style="-fx-background-color: grey;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+   <Rectangle fx:id="nameRect" arcHeight="5.0" arcWidth="5.0" fill="#f52206" height="271.0" layoutX="-4.0" layoutY="97.0" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: red;" width="206.0" />
+   <Rectangle fx:id="matchRect" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="340.0" layoutX="361.0" layoutY="66.0" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: firebrick;" visible="false" width="200.0" />
+   <Rectangle fx:id="resultRect" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="80.0" layoutX="14.0" layoutY="401.0" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: firebrick;" visible="false" width="338.0" />
+   <Rectangle fx:id="gameRect" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="301.0" layoutX="5.0" layoutY="98.0" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: white;" visible="false" width="357.0" />
+      <Label fx:id="lblDisplay" layoutX="51.0" layoutY="9.0" text="BOLD" textFill="#e22323">
+      <font>
+         <Font name="Arial Black" size="43.0" />
+      </font></Label>
+   <GridPane fx:id="gdpPlayGrid" layoutX="39.0" layoutY="115.0" prefHeight="271.0" prefWidth="297.0" visible="false">
+     <columnConstraints>
+       <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+       <ColumnConstraints hgrow="SOMETIMES" maxWidth="103.0" minWidth="10.0" prefWidth="100.0" />
+         <ColumnConstraints hgrow="SOMETIMES" maxWidth="157.99998474121094" minWidth="10.0" prefWidth="100.0" />
+         <ColumnConstraints hgrow="SOMETIMES" maxWidth="157.99998474121094" minWidth="10.0" prefWidth="100.0" />
+         <ColumnConstraints hgrow="SOMETIMES" maxWidth="157.99998474121094" minWidth="10.0" prefWidth="100.0" />
+     </columnConstraints>
+     <rowConstraints>
+       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+     </rowConstraints>
+      <children>
+         <TextField fx:id="p3name1" promptText="Player 3 Name" GridPane.rowIndex="2" />
+      </children>
+   </GridPane>
+   <Label fx:id="lblTurn" alignment="CENTER" layoutX="118.0" layoutY="414.0" prefHeight="17.0" prefWidth="167.0" text="Turn:" visible="false" />
+   <Button fx:id="btnStart" disable="true" layoutX="37.0" layoutY="308.0" mnemonicParsing="false" onAction="#start" text="Start" />
+   <Label fx:id="lblResult" alignment="CENTER" layoutX="70.0" layoutY="441.0" prefHeight="17.0" prefWidth="264.0" text="Result:" visible="false" />
+   <Button fx:id="takePts" layoutX="272.0" layoutY="500.0" mnemonicParsing="false" onAction="#takePoints" text="Take points" visible="false" />
+   <Label fx:id="score1" layoutX="43.0" layoutY="406.0" text="Player 1" visible="false" />
+   <Label fx:id="score2" layoutX="43.0" layoutY="423.0" text="Player 2" visible="false" />
+   <GridPane fx:id="highlightMatch" layoutX="377.0" layoutY="133.0" prefHeight="263.0" prefWidth="167.0">
+     <columnConstraints>
+       <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+       <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+     </columnConstraints>
+     <rowConstraints>
+       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+     </rowConstraints>
+   </GridPane>
+   <Text fx:id="matches" layoutX="439.0" layoutY="102.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Matches" visible="false" />
+   <Label fx:id="score3" layoutX="43.0" layoutY="441.0" text="Player 3" visible="false" />
+   <Label fx:id="score4" layoutX="42.0" layoutY="461.0" text="Player 4" visible="false">
+      <font>
+         <Font name="Arial" size="12.0" />
+      </font></Label>
+   <TextField fx:id="p1name" layoutX="31.0" layoutY="120.0" promptText="Player 1 Name" />
+   <TextField fx:id="p3name" disable="true" layoutX="31.0" layoutY="223.0" promptText="Player 3 Name" />
+   <TextField fx:id="p2name" layoutX="31.0" layoutY="167.0" onKeyTyped="#enableStart" promptText="Player 2 Name" />
+   <Label fx:id="message" layoutX="574.0" layoutY="46.0" prefHeight="467.0" prefWidth="167.0" text="Click on the cards to flip them over and play the game" textFill="#f2ecec" visible="false" wrapText="true" />
+   <CheckBox fx:id="powerupCheckBox" layoutX="96.0" layoutY="312.0" mnemonicParsing="false" text="Powerups">
+      <font>
+         <Font name="Arial" size="12.0" />
+      </font></CheckBox>
+   <Button fx:id="notUsingPowerup" layoutX="402.0" layoutY="500.0" mnemonicParsing="false" onAction="#notUsePowerUp" text="Not using powerup" visible="false" />
+   <GridPane fx:id="powerGrid" gridLinesVisible="true" layoutX="361.0" layoutY="415.0" prefHeight="70.0" prefWidth="200.0" style="-fx-background-color: firebrick;" visible="false">
+     <columnConstraints>
+       <ColumnConstraints hgrow="SOMETIMES" maxWidth="90.0" minWidth="10.0" prefWidth="90.0" />
+       <ColumnConstraints hgrow="SOMETIMES" maxWidth="90.0" minWidth="10.0" prefWidth="89.0" />
+         <ColumnConstraints hgrow="SOMETIMES" maxWidth="90.0" minWidth="10.0" prefWidth="100.0" />
+         <ColumnConstraints hgrow="SOMETIMES" maxWidth="90.0" minWidth="10.0" prefWidth="100.0" />
+     </columnConstraints>
+     <rowConstraints>
+       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+     </rowConstraints>
+   </GridPane>
+   <CheckBox fx:id="cheat" layoutX="96.0" layoutY="340.0" mnemonicParsing="false" text="Cheat Layout">
+      <font>
+         <Font name="Arial" size="12.0" />
+      </font>
+   </CheckBox>
+   <TextField fx:id="p4name" disable="true" layoutX="31.0" layoutY="267.0" promptText="Player 4 Name" />
+   <Label fx:id="chooserLabel" layoutX="41.0" layoutY="106.0" text="POWERUP CHOOSER:" visible="false" />
+   <Label fx:id="numMult" layoutX="23.0" layoutY="137.0" text="# of Multiplier: " visible="false" />
+   <Label fx:id="numSecond" layoutX="23.0" layoutY="197.0" text="# of Second chance: " visible="false" />
+   <Label fx:id="numPat" layoutX="23.0" layoutY="258.0" text="# of Pattern: " visible="false" />
+   <Label fx:id="numDouble" layoutX="16.0" layoutY="325.0" text="# of Double or Nothing" visible="false" />
+   <TextField fx:id="multField" layoutX="149.0" layoutY="132.0" prefHeight="26.0" prefWidth="45.0" visible="false" />
+   <TextField fx:id="secondField" layoutX="149.0" layoutY="193.0" prefHeight="26.0" prefWidth="45.0" visible="false" />
+   <TextField fx:id="patField" layoutX="149.0" layoutY="254.0" prefHeight="26.0" prefWidth="45.0" visible="false" />
+   <TextField fx:id="doubleField" layoutX="149.0" layoutY="320.0" prefHeight="26.0" prefWidth="45.0" visible="false" />
+   <Button fx:id="accept" layoutX="66.0" layoutY="380.0" mnemonicParsing="false" onAction="#acceptPowerups" text="Accept" visible="false" />
+   <Text fx:id="gameOver" fontSmoothingType="LCD" layoutX="91.0" layoutY="220.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-fill: red;" text="GAME OVER!" textAlignment="CENTER" visible="false" wrappingWidth="622.034423828125">
+      <font>
+         <Font name="Arial Black" size="96.0" />
+      </font>
+   </Text>
+   <Button fx:id="reset" layoutX="15.0" layoutY="543.0" mnemonicParsing="false" onAction="#resetGame" text="resetBtn" />
+   <Label fx:id="patternInstructions" layoutX="598.0" layoutY="338.0" prefHeight="95.0" prefWidth="286.0" text="Type in a pattern. If you match the pattern then you get extra points at the end of this turn. Your options are 'biue', 'orange' or 'yellow'. If you mistype then the default value is blue." textAlignment="CENTER" textFill="#f5f2f2" visible="false" wrapText="true" />
+   <TextField fx:id="patternField" layoutX="667.0" layoutY="487.0" onAction="#setPattern" visible="false" />
+</AnchorPane>
